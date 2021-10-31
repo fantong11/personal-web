@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin: 0 40px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 72px;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: rgb(23, 207, 253);
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.column {
+    width: 40%;
+}

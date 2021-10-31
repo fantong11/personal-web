@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.navbar div {
+    padding: 0 20px;
+    border-right: 1px solid black;
+}
+
+.navbar div:last-child {
+    border-right: none;
+}
+
+.title {
+    color: black;
+    text-decoration: none;
+    &:hover {
+        color: rgb(23, 207, 253);
+        transition: 0.5s;
+    }
+}
