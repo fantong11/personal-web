@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/fantong11/personal-web/compare/v1.1.2...v1.1.3) (2025-05-17)
+
+
+### Bug Fixes
+
+* ensure newline at end of file in CI workflow ([549a063](https://github.com/fantong11/personal-web/commit/549a06359583fee952bd9b97e5a81c625e2aa5f5))
+
 ## [1.1.2](https://github.com/fantong11/personal-web/compare/v1.1.1...v1.1.2) (2025-05-17)
 
 ### Bug Fixes
