@@ -5,19 +5,30 @@ interface NavBarProps {
   className?: string;
 }
 
+const navItems = [
+  { id: 'intro', label: 'Intro' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+];
+
 const NavBar: React.FC<NavBarProps> = ({ className }) => {
+  const handleClick = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
-    <div className={className ? `${styles.navbar} ${className}` : styles.navbar}>
-      <div>
-        <a className={styles.title} href="#Resume">Resume</a>
-      </div>
-      <div>
-        <a className={styles.title} href="#Projects">Projects</a>
-      </div>
-      <div>
-        <a className={styles.title} href="#Contact">Contact</a>
-      </div>
-    </div>
+    <nav className={className ? `${styles.navbar} ${className}` : styles.navbar}>
+      {navItems.map((item) => (
+        <div key={item.id}>
+          <button className={styles.title} onClick={() => handleClick(item.id)}>
+            {item.label}
+          </button>
+        </div>
+      ))}
+    </nav>
   );
 };
 

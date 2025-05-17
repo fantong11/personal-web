@@ -1,0 +1,229 @@
+@import './variables';
+@import './mixins';
+
+body {
+  background: $bg;
+  color: $text;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  max-width: 800px;
+  margin: 40px auto 0 auto;
+  padding: 0 16px;
+}
+
+.section {
+  margin-bottom: 64px;
+  padding: 32px 0;
+  border-bottom: 1px solid $border;
+
+  h2 {
+    @include section-title;
+    margin-top: 0;
+  }
+
+  p, ul {
+    font-size: 1.1rem;
+    color: $text;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+}
+
+.intro-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 1.5rem;
+}
+.intro-edu {
+  flex: 2;
+  min-width: 220px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: $secondary;
+}
+.intro-edu span {
+  color: $primary;
+  font-size: 0.95em;
+  margin-left: 8px;
+}
+.intro-contact {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  align-items: flex-end;
+}
+.intro-contact a {
+  color: $primary;
+  text-decoration: none;
+}
+.intro-summary {
+  margin-top: 2rem;
+  p {
+    margin-bottom: 1.1rem;
+    font-size: 1.08rem;
+    color: $text;
+    line-height: 1.7;
+  }
+}
+.exp-item, .project-item {
+  margin-bottom: 2rem;
+}
+.exp-title, .project-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: $secondary;
+  margin-bottom: 0.2rem;
+}
+.exp-title span, .project-title span {
+  color: $primary;
+  font-size: 0.95em;
+  margin-left: 8px;
+}
+.exp-tech, .project-tech {
+  color: $primary;
+  font-size: 0.98rem;
+  margin-bottom: 0.5rem;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+.contact-list a {
+  color: $primary;
+  text-decoration: none;
+}
+
+.edu-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.edu-node {
+  background: $bg;
+  border-radius: $radius;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 12px 20px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  min-width: 220px;
+}
+.edu-degree {
+  font-weight: bold;
+  color: $primary;
+  font-size: 1.08rem;
+}
+.edu-school {
+  color: $secondary;
+  font-size: 1rem;
+}
+.edu-year {
+  color: $text;
+  font-size: 0.95rem;
+}
+.edu-line {
+  width: 2px;
+  height: 24px;
+  background: $primary;
+  margin: 0 0 0 16px;
+  align-self: flex-start;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 1.5rem;
+}
+.card {
+  background: $bg;
+  border-radius: $radius;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 20px 24px;
+  min-width: 260px;
+  flex: 1 1 320px;
+  transition: box-shadow $transition;
+  border: 1px solid $border;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(23,207,253,0.08);
+  border-color: $primary;
+}
+
+.intro-skills {
+  margin-top: 2.5rem;
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 32px;
+}
+.skill-item {
+  min-width: 180px;
+  margin-bottom: 10px;
+}
+.skill-bar {
+  background: $border;
+  border-radius: 6px;
+  height: 10px;
+  width: 120px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+.skill-progress {
+  background: $primary;
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.6s;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 0 8px;
+  }
+  .section {
+    padding: 20px 0;
+  }
+  .intro-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .intro-contact {
+    align-items: flex-start;
+  }
+  .edu-timeline {
+    min-width: 0;
+  }
+  .card {
+    min-width: 0;
+    padding: 16px 10px;
+  }
+  .skills-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .card-list {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

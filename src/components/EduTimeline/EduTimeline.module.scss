@@ -1,0 +1,66 @@
+.eduTimeline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.eduNode {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1rem 1.5rem;
+  min-width: 220px;
+  border-left: 4px solid #4f8cff;
+  position: relative;
+}
+
+.expNode {
+  border-left: 4px solid #ffb347;
+}
+
+.eduDegree {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.eduSchool {
+  font-size: 1rem;
+  color: #4f8cff;
+  margin-top: 0.2rem;
+}
+
+.eduYear {
+  font-size: 0.95rem;
+  color: #888;
+  margin-top: 0.1rem;
+}
+
+.expTitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.expTech {
+  font-size: 0.98rem;
+  color: #ffb347;
+  margin-top: 0.2rem;
+}
+
+.expDetails {
+  margin: 0.5rem 0 0 1rem;
+  font-size: 0.97rem;
+  color: #444;
+}
+
+.eduLine {
+  width: 2px;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, #4f8cff 60%, #e0e7ef 100%);
+  margin: 0 0 0 10px;
+  align-self: flex-start;
+}
