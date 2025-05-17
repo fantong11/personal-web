@@ -1,11 +1,83 @@
-name: Attach Build Zip to Release
+name: Main Workflow
 
 on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
   release:
     types: [published]
 
 jobs:
+  security:
+    if: github.event_name != 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Mend Bolt Scan
+        uses: mend-toolkit/bolt-action@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
+  lint:
+    if: github.event_name != 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Run ESLint
+        run: npx eslint 'src/**/*.{js,jsx,ts,tsx}'
+      - name: Check formatting with Prettier
+        run: npx prettier --check .
+
+  test:
+    if: github.event_name != 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test -- --watchAll=false
+      - name: Test Coverage
+        run: npm test -- --coverage --watchAll=false
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/lcov.info
+
+  release-please:
+    if: github.event_name == 'push'
+    needs: [security, lint, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release Please
+        uses: google-github-actions/release-please-action@v4
+        with:
+          release-type: node
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   upload-artifact:
+    if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -26,55 +98,3 @@ jobs:
           files: build.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  security:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Mend Bolt Scan
-        uses: mend-toolkit/bolt-action@v4
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: javascript
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install dependencies
-        run: npm ci
-      - name: Run ESLint
-        run: npx eslint 'src/**/*.{js,jsx,ts,tsx}'
-      - name: Check formatting with Prettier
-        run: npx prettier --check .
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install dependencies
-        run: npm ci
-      - name: Run tests
-        run: npm test -- --watchAll=false
-      - name: Test Coverage
-        run: npm test -- --coverage --watchAll=false
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          files: ./coverage/lcov.info
