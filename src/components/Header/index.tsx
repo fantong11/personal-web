@@ -7,7 +7,7 @@ const Header: React.FC = () => {
     <div className={styles.header}>
       <div className={`${styles.title} ${styles.column}`}>
         <div className={styles.circle}></div>
-        <a className={styles.name}>Kai Hsiang Fan</a>
+        <span className={styles.name}>Kai Hsiang Fan</span>
       </div>
       <NavBar className={styles.column as string} />
     </div>
