@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface SummaryProps {
   summary: string[];
@@ -6,7 +6,9 @@ interface SummaryProps {
 
 const Summary: React.FC<SummaryProps> = ({ summary }) => (
   <div className="intro-summary">
-    {summary.map((s, i) => <p key={i}>{s}</p>)}
+    {summary.map((s, i) => (
+      <p key={i}>{s}</p>
+    ))}
   </div>
 );
 

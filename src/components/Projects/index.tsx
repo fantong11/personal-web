@@ -1,5 +1,5 @@
-import React from 'react';
-import Section from '../Section';
+import React from "react";
+import Section from "../Section";
 
 interface Project {
   title: string;
@@ -15,12 +15,16 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ projects }) => (
   <Section id="projects" title="Projects">
     <div className="card-list">
-      {projects.map(project => (
+      {projects.map((project) => (
         <div className="card project-item" key={project.title}>
-          <div className="project-title">{project.title} <span>{project.year}</span></div>
+          <div className="project-title">
+            {project.title} <span>{project.year}</span>
+          </div>
           <div className="project-tech">{project.tech}</div>
           <ul>
-            {project.details.map((d, i) => <li key={i}>{d}</li>)}
+            {project.details.map((d, i) => (
+              <li key={i}>{d}</li>
+            ))}
           </ul>
         </div>
       ))}

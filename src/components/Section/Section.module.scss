@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
 .section {
   margin-bottom: 64px;
@@ -7,7 +7,7 @@
   border-bottom: 1px solid $border;
   background: $bg;
   border-radius: $radius;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   transition: box-shadow $transition;
 
   &:last-child {

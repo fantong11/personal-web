@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './SkillBar.module.scss';
+import React from "react";
+import styles from "./SkillBar.module.scss";
 
 interface SkillBarProps {
   label: string;

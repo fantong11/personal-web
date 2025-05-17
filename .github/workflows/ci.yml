@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Mend Bolt Scan
-        uses: mend-toolkit/bolt-action@v4
+        uses: mend-toolkit/bolt-action@v4.1.0
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:

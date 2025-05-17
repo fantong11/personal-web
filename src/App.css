@@ -19,7 +19,8 @@ main {
   color: #17cffd;
 }
 
-.section p, .section ul {
+.section p,
+.section ul {
   font-size: 1.1rem;
   color: #333;
 }
