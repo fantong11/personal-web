@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/fantong11/personal-web/compare/v1.1.3...v1.1.4) (2025-05-17)
+
+
+### Bug Fixes
+
+* update CI workflow to trigger on develop and release branches ([bfff6b8](https://github.com/fantong11/personal-web/commit/bfff6b86daff84ea52e865aca92bc46dbe299009))
+
 ## [1.1.3](https://github.com/fantong11/personal-web/compare/v1.1.2...v1.1.3) (2025-05-17)
 
 
