@@ -116,4 +116,4 @@ jobs:
         if: steps.git-check.outputs.no_changes == 'false'
         run: |
           git commit -m "chore: auto format with Prettier [skip ci]"
-          git pushＦ
+          git push
