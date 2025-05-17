@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/fantong11/personal-web/compare/v1.0.0...v1.1.0) (2025-05-17)
+
+
+### Features
+
+* add security, lint, and test jobs to GitHub Actions workflow ([c4d3e6d](https://github.com/fantong11/personal-web/commit/c4d3e6d028e23a5a7606a8c27b3a7357b2aef462))
+
 ## 1.0.0 (2025-05-17)
 
 
