@@ -57,7 +57,7 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           release-type: node
-          target-branch: main      # 指定要產生 PR 的目標分支
+          target-branch: main # 指定要產生 PR 的目標分支
           # 預設 source-branch 就是目前所在的 branch (release)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

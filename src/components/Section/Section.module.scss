@@ -3,12 +3,25 @@
 
 .section {
   margin-bottom: 64px;
-  padding: 32px 0;
+  padding: 48px 32px;
   border-bottom: 1px solid $border;
-  background: $bg;
-  border-radius: $radius;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: box-shadow $transition;
+  background: linear-gradient(135deg, #f8fbff 0%, #e3f6ff 100%);
+  border-radius: 24px;
+  box-shadow:
+    0 4px 24px rgba(23, 207, 253, 0.08),
+    0 1.5px 6px rgba(34, 34, 34, 0.04);
+  transition:
+    box-shadow $transition,
+    transform $transition;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow:
+      0 8px 32px rgba(23, 207, 253, 0.16),
+      0 3px 12px rgba(34, 34, 34, 0.08);
+    transform: translateY(-2px) scale(1.01);
+  }
 
   &:last-child {
     border-bottom: none;
@@ -16,5 +29,20 @@
 
   h2 {
     @include section-title;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(23, 207, 253, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 32px;
+      border-radius: 4px;
+      background: linear-gradient(180deg, $primary 0%, #fff 100%);
+      margin-right: 12px;
+    }
   }
 }
