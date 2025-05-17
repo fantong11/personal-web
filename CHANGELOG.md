@@ -2,12 +2,11 @@
 
 ## [1.1.2](https://github.com/fantong11/personal-web/compare/v1.1.1...v1.1.2) (2025-05-17)
 
-
 ### Bug Fixes
 
-* correct git push command in format-on-main job ([6f7ce48](https://github.com/fantong11/personal-web/commit/6f7ce4848626e9f7d513663947cf0ecb4511c431))
-* remove unnecessary blank line in CHANGELOG.md ([ccf81b4](https://github.com/fantong11/personal-web/commit/ccf81b4ee11eb78723a24423494107e5f140cfd1))
-* update release-please action reference and add auto-formatting job ([eaa57f8](https://github.com/fantong11/personal-web/commit/eaa57f828bac1682c6a8ea3703c97b34d848ca51))
+- correct git push command in format-on-main job ([6f7ce48](https://github.com/fantong11/personal-web/commit/6f7ce4848626e9f7d513663947cf0ecb4511c431))
+- remove unnecessary blank line in CHANGELOG.md ([ccf81b4](https://github.com/fantong11/personal-web/commit/ccf81b4ee11eb78723a24423494107e5f140cfd1))
+- update release-please action reference and add auto-formatting job ([eaa57f8](https://github.com/fantong11/personal-web/commit/eaa57f828bac1682c6a8ea3703c97b34d848ca51))
 
 ## [1.1.1](https://github.com/fantong11/personal-web/compare/v1.1.0...v1.1.1) (2025-05-17)
 
