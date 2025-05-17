@@ -1,11 +1,11 @@
-name: Deploy to Vercel
+name: Attach Build Zip to Release
 
 on:
   release:
     types: [published]
 
 jobs:
-  deploy:
+  upload-artifact:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,11 +18,11 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
+      - name: Zip build output
+        run: zip -r build.zip ./build
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: ./
-          prod: true
+          files: build.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
