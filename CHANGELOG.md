@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/fantong11/personal-web/compare/v1.1.0...v1.1.1) (2025-05-17)
+
+
+### Bug Fixes
+
+* downgrade mend-toolkit/bolt-action to v3.1.1 for compatibility ([593c9dd](https://github.com/fantong11/personal-web/commit/593c9dd41356eda6b9266d2faeffd973e564eb3e))
+
 ## [1.1.0](https://github.com/fantong11/personal-web/compare/v1.0.0...v1.1.0) (2025-05-17)
 
 ### Features
