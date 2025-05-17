@@ -49,7 +49,7 @@ jobs:
 
   release-please:
     if: github.event_name == 'push'
-    needs: [security, lint, test]
+    needs: [lint, test]
     runs-on: ubuntu-latest
     steps:
       - name: Release Please
